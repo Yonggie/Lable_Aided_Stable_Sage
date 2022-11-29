@@ -46,9 +46,20 @@ regularizer分为euclidean regularizer和cosine regularizer，50次的最后实�
 |    | label sage cosine (epoch ~5.5k, coef 0.5)      | 0.92+ | 0.826| 
 |    | label sage euclidean  (epoch ~7k, coef 0.5)     | ~0.85 | 0.8244|
 
+0.9实验的valid predictor相当差。
 
 
 这个py文件没有储存数据，全部是在内存中的。
 
 # 数据动态变化实验
 **研究问题**：当动态数据变换时，添加label representation regularizer的方法还是否奏效？
+
+| 次      | exp settings      | logits (valid) predictor |  LR (test) classifier | gap mean std| note|
+| ----------- | ----------- | ----------- |  ----------- | ----------- | ----------- |
+| 1st 50% train    | sage (epoch ~450)       | 0.87   | 0.88 | -|
+|     |        |
+| 2nd 100% train  | sage (epoch ~450)       | 0.87 | 0.77| 
+|    | label sage cosine (epoch ~1.5k)      | ~0.92 | 0.85| |coef 0.5
+|    | label sage euclidean  (epoch ~2.5k)     | ~0.85 | 0.70||coef 0.5
+|    | f.t. label sage cosine  (epoch ~3k)     | ~0.93 | 0.85||coef 0.5
+|    | f.t. label sage euclidean  (epoch ~500)     | ~0.85 | 0.84||coef 0.5

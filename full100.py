@@ -185,8 +185,8 @@ for i in range(50):
 
         neg_nodes=reps[neg_mask]
         neg_label=frozen_label[1].expand_as(neg_nodes)
-        loss2 = -(F.cosine_similarity(pos_label,pos_nodes).mean()+F.cosine_similarity(neg_label,neg_nodes).mean()).mean()
-        # loss2 = -(torch.dist(pos_label,pos_nodes).mean()+torch.dist(neg_label,neg_nodes).mean()).mean()
+        # loss2 = -(F.cosine_similarity(pos_label,pos_nodes).mean()+F.cosine_similarity(neg_label,neg_nodes).mean()).mean()
+        loss2 = -(torch.dist(pos_label,pos_nodes).mean()+torch.dist(neg_label,neg_nodes).mean()).mean()
         loss=0.5*loss1+0.5*loss2
         
 
